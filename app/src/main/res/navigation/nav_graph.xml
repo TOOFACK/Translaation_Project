@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/englishFragment">
+
+    <fragment
+        android:id="@+id/englishFragment"
+        android:name="com.example.paulr.translaation_project.EnglishFragment"
+        android:label="fragment_english"
+        tools:layout="@layout/fragment_english" >
+        <action
+            android:id="@+id/action_englishFragment_to_japaniseFragment"
+            app:destination="@id/japaniseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chineseFragment"
+        android:name="com.example.paulr.translaation_project.ChineseFragment"
+        android:label="fragment_chinese"
+        tools:layout="@layout/fragment_chinese" >
+        <action
+            android:id="@+id/action_chineseFragment_to_russianFragment"
+            app:destination="@id/russianFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/japaniseFragment"
+        android:name="com.example.paulr.translaation_project.JapaniseFragment"
+        android:label="fragment_japanise"
+        tools:layout="@layout/fragment_japanise" >
+        <action
+            android:id="@+id/action_japaniseFragment_to_chineseFragment"
+            app:destination="@id/chineseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/russianFragment"
+        android:name="com.example.paulr.translaation_project.RussianFragment"
+        android:label="fragment_russian"
+        tools:layout="@layout/fragment_russian" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.paulr.translaation_project.MainActivity"
+        android:label="MainActivity" />
+</navigation>
