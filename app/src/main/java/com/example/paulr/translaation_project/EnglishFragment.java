@@ -3,10 +3,11 @@ package com.example.paulr.translaation_project;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.core.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 
 /**
@@ -64,7 +65,8 @@ public class EnglishFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_english, container, false);
+        View rootView =  inflater.inflate(R.layout.fragment_english, container, false);
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -74,16 +76,16 @@ public class EnglishFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
+   // @Override
+   // public void onAttach(Context context) {
+    //    super.onAttach(context);
+   //     if (context instanceof OnFragmentInteractionListener) {
+      //      mListener = (OnFragmentInteractionListener) context;
+      //  } else {
+      //      throw new RuntimeException(context.toString()
+        //            + " must implement OnFragmentInteractionListener");
+       // }
+   // }
 
     @Override
     public void onDetach() {

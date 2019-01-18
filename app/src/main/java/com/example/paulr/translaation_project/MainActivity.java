@@ -1,15 +1,27 @@
 package com.example.paulr.translaation_project;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
+    EnglishFragment EnglishFrag;
+    androidx.fragment.app.FragmentTransaction Transactioner;
+    JapaniseFragment JapFrag;
+    ChineseFragment ChinaFrag;
+    RussianFragment RussFrag;
+
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -39,6 +51,26 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        EnglishFrag = new EnglishFragment();
+        JapFrag = new JapaniseFragment();
+        ChinaFrag = new ChineseFragment();
+        RussFrag = new RussianFragment();
+
     }
+    public void Find(View view){
+        //FragmentManager fragmentManager = getFragmentManager();
+        //Transactioner = getSupportFragmentManager().beginTransaction();
+        //Transactioner.setTransitionStyle()
+        //Transactioner.add(R.id.EnglishFragment, EnglishFrag);
+       // Transactioner.addToBackStack(null);
+        //Transactioner.commit();
+        Intent intent = new Intent(this, TranslateActivity.class);
+        startActivity(intent);
+
+
+
+
+    }
+
 
 }

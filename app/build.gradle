@@ -34,4 +34,6 @@ dependencies {
 
     implementation "android.arch.navigation:navigation-fragment:$nav_version" // use -ktx for Kotlin
     implementation "android.arch.navigation:navigation-ui:$nav_version" // use -ktx for Kotlin
+    compile group: 'androidx.viewpager', name: 'viewpager', version: '1.0.0'
+    compile group: 'androidx.legacy', name: 'legacy-support-v4', version: '1.0.0'
 }
