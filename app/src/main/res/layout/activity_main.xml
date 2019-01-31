@@ -10,16 +10,20 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".First_Layout.MainActivity"
     android:orientation="horizontal">
 
     <LinearLayout
+
+
         android:id="@+id/translate"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
+
         <EditText
+            android:id="@+id/wordEnglishMainActivity"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="click to enter a text"
@@ -31,6 +35,19 @@
             android:layout_height="wrap_content"
             android:text="Find"
             android:onClick="Find"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/Recycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+
+
+
 
 
     </LinearLayout>

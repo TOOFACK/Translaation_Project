@@ -1,13 +1,14 @@
-package com.example.paulr.translaation_project;
+package com.example.paulr.translaation_project.Second_Layout;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.FragmentManager;
 import android.os.Bundle;
+
+import com.example.paulr.translaation_project.Adapters.MyAdapter;
+import com.example.paulr.translaation_project.R;
 
 public class TranslateActivity extends FragmentActivity {
     private static final int  NUM_PAGES = 5;
@@ -44,5 +45,6 @@ public class TranslateActivity extends FragmentActivity {
       //  ft.commit();
       //
     }
+
 
 }

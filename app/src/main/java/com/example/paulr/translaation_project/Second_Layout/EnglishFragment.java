@@ -1,11 +1,15 @@
-package com.example.paulr.translaation_project;
+package com.example.paulr.translaation_project.Second_Layout;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.paulr.translaation_project.R;
+
+import org.w3c.dom.Text;
 
 import androidx.fragment.app.Fragment;
 
@@ -23,6 +27,9 @@ public class EnglishFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private TextView wordEnglishFrag;
+    private TextView defenitionEnglishFrag;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -49,6 +56,7 @@ public class EnglishFragment extends Fragment {
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+
         return fragment;
     }
 
@@ -58,6 +66,7 @@ public class EnglishFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 

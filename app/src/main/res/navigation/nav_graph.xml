@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/englishFragment"
-        android:name="com.example.paulr.translaation_project.EnglishFragment"
+        android:name="com.example.paulr.translaation_project.Second_Layout.EnglishFragment"
         android:label="fragment_english"
         tools:layout="@layout/fragment_english" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/chineseFragment"
-        android:name="com.example.paulr.translaation_project.ChineseFragment"
+        android:name="com.example.paulr.translaation_project.Second_Layout.ChineseFragment"
         android:label="fragment_chinese"
         tools:layout="@layout/fragment_chinese" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/japaniseFragment"
-        android:name="com.example.paulr.translaation_project.JapaniseFragment"
+        android:name="com.example.paulr.translaation_project.Second_Layout.JapaniseFragment"
         android:label="fragment_japanise"
         tools:layout="@layout/fragment_japanise" >
         <action
@@ -34,11 +34,11 @@
     </fragment>
     <fragment
         android:id="@+id/russianFragment"
-        android:name="com.example.paulr.translaation_project.RussianFragment"
+        android:name="com.example.paulr.translaation_project.Second_Layout.RussianFragment"
         android:label="fragment_russian"
         tools:layout="@layout/fragment_russian" />
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.paulr.translaation_project.MainActivity"
+        android:name="com.example.paulr.translaation_project.First_Layout.MainActivity"
         android:label="MainActivity" />
 </navigation>
