@@ -6,6 +6,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.paulr.translaation_project.Adapters.MyAdapter;
 import com.example.paulr.translaation_project.R;
@@ -21,12 +22,14 @@ public class TranslateActivity extends FragmentActivity {
    private ChineseFragment ChinaFrag;
    private RussianFragment RussFrag;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate);
         ViewPager pager=(ViewPager)findViewById(R.id.pager);
          pager.setAdapter(new MyAdapter(getSupportFragmentManager()));
+
 
 
 

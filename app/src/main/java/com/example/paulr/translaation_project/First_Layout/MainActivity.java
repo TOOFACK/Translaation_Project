@@ -16,14 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AsyncTask_DB_Test.AsyncResponse {
 
 
     EnglishFragment EnglishFrag;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText wordEnglish;
 
-
+    String search;
 
 
 
@@ -52,50 +52,35 @@ public class MainActivity extends AppCompatActivity {
         Words = findViewById(R.id.Recycler);
         wordList = new ArrayList<>();
 
+        wordEnglish = findViewById(R.id.wordEnglishMainActivity);
+
 
     }
 
+
+
     public void Find(View view) {
-        //FragmentManager fragmentManager = getFragmentManager();
-        //Transactioner = getSupportFragmentManager().beginTransaction();
-        //Transactioner.setTransitionStyle()
-        //Transactioner.add(R.id.EnglishFragment, EnglishFrag);
-        // Transactioner.addToBackStack(null);
-        //Transactioner.commit();
 
-//        Intent intent = new Intent(this, TranslateActivity.class);
-//        startActivity(intent);
+       Intent intentToFragments = new Intent(this, TranslateActivity.class);
+        startActivity(intentToFragments);
 
-        AsyncTask_DB_Test asyncTask_db_test = new AsyncTask_DB_Test();
-        wordEnglish  =  findViewById(R.id.wordEnglishMainActivity);
-        asyncTask_db_test.execute(wordEnglish.getText().toString());
-        Intent mainActivityIntent = new Intent();
-        String checkMessge = mainActivityIntent.getStringExtra("defenitionEnglish");
-        Toast toast = Toast.makeText(getApplicationContext(), checkMessge, Toast.LENGTH_LONG);
-        toast.show();
-        System.out.println(checkMessge);
 
+        search = wordEnglish.getText().toString();
+        new AsyncTask_DB_Test((AsyncTask_DB_Test.AsyncResponse) this).execute(search);
 
         wordList.add(new Word(wordEnglish.getText()));
         Words.setLayoutManager(new GridLayoutManager(this, 1));
         Words.setAdapter(new WordAdapter(wordList));
 
 
-        //try {
-        //    Thread.sleep(2000);
-        //  } catch (InterruptedException e) {
-        //    e.printStackTrace();
-        //  }
-//        wordList.add( new Word(Edit.getText()));
-//        Words.setLayoutManager(new GridLayoutManager(this, 1));
-//        Words.setAdapter(new WordAdapter(wordList));
 
     }
 
 
-
-
-
+    @Override
+    public void processFinish(String[] output) {
+        Log.e("check",output[0]);
+    }
 }
 
 
