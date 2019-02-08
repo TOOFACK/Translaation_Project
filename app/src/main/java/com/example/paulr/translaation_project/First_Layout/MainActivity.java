@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements AsyncTask_DB_Test
     ArrayList<Word> wordList;
 
     EditText wordEnglish;
+
+    Button translate;
 
 
 
@@ -58,10 +61,6 @@ public class MainActivity extends AppCompatActivity implements AsyncTask_DB_Test
 
         wordEnglish = findViewById(R.id.wordEnglishMainActivity);
 
-
-
-
-
     }
 
 
@@ -69,10 +68,11 @@ public class MainActivity extends AppCompatActivity implements AsyncTask_DB_Test
 
     public void Find(View view) {
         String text = wordEnglish.getText().toString();
-
-
         search = wordEnglish.getText().toString();
         new AsyncTask_DB_Test((AsyncTask_DB_Test.AsyncResponse) this).execute(search);
+        translate = findViewById(R.id.Find);
+        translate.setEnabled(false);
+
 
         wordList.add(new Word(wordEnglish.getText()));
         Words.setLayoutManager(new GridLayoutManager(this, 1));
@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements AsyncTask_DB_Test
         intentToFragments.putExtra("wordJapan",output[5]);
         intentToFragments.putExtra("defenitoinJapan",output[6]);
         startActivity(intentToFragments);
+        translate.setEnabled(true);
         Log.e("check",output[0]);
     }
 
