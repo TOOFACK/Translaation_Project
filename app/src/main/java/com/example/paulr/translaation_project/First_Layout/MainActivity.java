@@ -3,6 +3,7 @@ package com.example.paulr.translaation_project.First_Layout;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.paulr.translaation_project.Adapters.MyAdapter;
 import com.example.paulr.translaation_project.Adapters.Word;
 import com.example.paulr.translaation_project.Adapters.WordAdapter;
 import com.example.paulr.translaation_project.R;
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 import java.util.ArrayList;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements AsyncTask_DB_Test
     ArrayList<Word> wordList;
 
     EditText wordEnglish;
+
+
 
     String search;
 
@@ -55,14 +59,16 @@ public class MainActivity extends AppCompatActivity implements AsyncTask_DB_Test
         wordEnglish = findViewById(R.id.wordEnglishMainActivity);
 
 
+
+
+
     }
 
 
 
-    public void Find(View view) {
 
-       Intent intentToFragments = new Intent(this, TranslateActivity.class);
-        startActivity(intentToFragments);
+    public void Find(View view) {
+        String text = wordEnglish.getText().toString();
 
 
         search = wordEnglish.getText().toString();
@@ -74,13 +80,25 @@ public class MainActivity extends AppCompatActivity implements AsyncTask_DB_Test
 
 
 
+
     }
 
 
     @Override
     public void processFinish(String[] output) {
+        Intent intentToFragments = new Intent(this, TranslateActivity.class);
+        intentToFragments.putExtra("wordEnglish",output[7]);
+        intentToFragments.putExtra("defenitionEnglish",output[0]);
+        intentToFragments.putExtra("wordRussian",output[1]);
+        intentToFragments.putExtra("defenitionRussian",output[2]);
+        intentToFragments.putExtra("wordChina",output[3]);
+        intentToFragments.putExtra("defenitionChina",output[4]);
+        intentToFragments.putExtra("wordJapan",output[5]);
+        intentToFragments.putExtra("defenitoinJapan",output[6]);
+        startActivity(intentToFragments);
         Log.e("check",output[0]);
     }
+
 }
 
 

@@ -3,6 +3,7 @@ package com.example.paulr.translaation_project.First_Layout;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.EditText;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -20,17 +21,18 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 
-class AsyncTask_DB_Test extends AsyncTask<String, String, String[]> {
+public class AsyncTask_DB_Test extends AsyncTask<String, String, String[]> {
 
 
-    protected String wordEnglishText = "111";
-    protected String defenitionEnglishText= "111";
-    protected String wordRussianText = "111";
-    protected String defenitionRussianText = "111";
-    protected String wordChinaText = "111";
-    protected String defenitionChinaText = "111";
-    protected String wordJapanText = "111";
-    protected String defenition_JapanText = "111";
+    protected String wordEnglishText = "Sorry, this word hasn't translated yet";
+    protected String defenitionEnglishText= "Sorry, this word hasn't translated yet";
+    protected String wordRussianText = "Sorry, this word hasn't translated yet";
+    protected String defenitionRussianText = "Sorry, this word hasn't translated yet";
+    protected String wordChinaText = "Sorry, this word hasn't translated yet";
+    protected String defenitionChinaText = "Sorry, this word hasn't translated yet";
+    protected String wordJapanText = "Sorry, this word hasn't translated yet";
+    protected String defenition_JapanText = "Sorry, this word hasn't translated yet";
+
 
     InputStream is = null;
     String result = null;
@@ -68,9 +70,6 @@ class AsyncTask_DB_Test extends AsyncTask<String, String, String[]> {
         protected String[] doInBackground(String... strings) {
 
 
-
-
-
             ArrayList<NameValuePair> nameValuePairs = new ArrayList<>();
             nameValuePairs.add(new BasicNameValuePair("wordEnglish", strings[0]));
 
@@ -104,7 +103,7 @@ class AsyncTask_DB_Test extends AsyncTask<String, String, String[]> {
 
             try {
                 JSONObject json_data = new JSONObject(result);
-                // wordEnglishText = (json_data.getString("wordEnglish"));
+                 wordEnglishText = (json_data.getString("wordEnglish"));
                 defenitionEnglishText = (json_data.getString("defenitionEnglish"));
                 wordRussianText = (json_data.getString("wordRussian"));
                 defenitionRussianText = (json_data.getString("defenitionRussian"));
@@ -119,7 +118,7 @@ class AsyncTask_DB_Test extends AsyncTask<String, String, String[]> {
             }
 
 
-            String words[] = new String[7];
+            String words[] = new String[8];
             words[0] = defenitionEnglishText;
             words[1] = wordRussianText;
             words[2] = defenitionRussianText;
@@ -127,6 +126,7 @@ class AsyncTask_DB_Test extends AsyncTask<String, String, String[]> {
             words[4] = defenitionChinaText;
             words[5] = wordJapanText;
             words[6] = defenition_JapanText;
+            words[7] = wordEnglishText;
 
 
             return words;
@@ -144,8 +144,6 @@ class AsyncTask_DB_Test extends AsyncTask<String, String, String[]> {
         protected void onPostExecute(String[] result) {
             super.onPostExecute(result);
             delegate.processFinish(result);
-
-
 
 
         }

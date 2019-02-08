@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.paulr.translaation_project.First_Layout.AsyncTask_DB_Test;
 import com.example.paulr.translaation_project.R;
 
 import androidx.fragment.app.Fragment;
@@ -20,7 +21,7 @@ import androidx.fragment.app.Fragment;
  * Use the {@link RussianFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RussianFragment extends Fragment  {
+public class RussianFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -59,18 +60,28 @@ public class RussianFragment extends Fragment  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_russian, container, false);
+        View v = inflater.inflate(R.layout.fragment_russian,container,false);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+        TextView WordR = (TextView)v.findViewById(R.id.WordRussian);
+        TextView defenitionR = v.findViewById(R.id.BackgroundRussian);
+        WordR.setText(mParam1);
+        defenitionR.setText(mParam2);
+
+        return v;
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -95,6 +106,8 @@ public class RussianFragment extends Fragment  {
         super.onDetach();
         mListener = null;
     }
+
+
 
     /**
      * This interface must be implemented by activities that contain this
